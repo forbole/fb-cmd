@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+
+set to_addr [lindex $argv 0]
+set amount [lindex $argv 1]
+set name [lindex $argv 2]
+set password [lindex $argv 3]
+set seq [lindex $argv 4]
+
+spawn fbcli send --amount=$amount --to=$to_addr --chain-id=forbole-0 --name=$name --sequence=$seq
+
+expect "Password to sign with '$name':"
+
+send -- "$password\r"
+
+expect eof

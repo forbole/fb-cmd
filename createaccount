@@ -1,0 +1,16 @@
+#!/usr/bin/expect -f
+
+set name [lindex $argv 0]
+set password [lindex $argv 1]
+
+spawn fbcli keys add $name 
+
+expect "Enter a passphrase for your key:"
+
+send -- "$password\r"
+
+expect "Repeat the passphrase:"
+
+send -- "$password\r"
+
+expect eof
