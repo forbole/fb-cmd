@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+
+set name [lindex $argv 0]
+
+spawn fbcli account $name 
+
+expect eof
