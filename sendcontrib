@@ -8,9 +8,10 @@ set time [lindex $argv 4]
 set type [lindex $argv 5]
 set name [lindex $argv 6]
 set password [lindex $argv 7]
-set seq [lindex $argv 48
+set chain_id [lindex $argv 8]
+set seq [lindex $argv 9]
 
-spawn fbcli contrib --content=$content --to=$to_addr --fee=$fee --key=$key --time=$time --type=$type --chain-id=forbole-0 --name=$name --sequence=$seq
+spawn fbcli contrib --content=$content --to=$to_addr --fee=$fee --key=$key --time=$time --type=$type --chain-id=$chain_id --name=$name --sequence=$seq
 
 expect "Password to sign with '$name':"
 
